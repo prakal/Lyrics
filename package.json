@@ -1,0 +1,12 @@
+{
+  "name": "Lyrics",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": "0.12.2"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "rapgenius-js": "^0.1.2"
+  }
+}
