@@ -33,4 +33,4 @@ var searchCallback = function(err, songs){
   }
 };
 
-rapgeniusClient.searchSong("Blank Space", "rap", searchCallback);
+rapgeniusClient.searchSong("Fake Plastic Trees", "rap", searchCallback);
