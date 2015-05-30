@@ -38,4 +38,4 @@ var searchCallback = function(err, songs){
 
 
 
-rapgeniusClient.searchSong("happy", "rap", searchCallback);
+rapgeniusClient.searchSong("rock bottom", "rap", searchCallback);
