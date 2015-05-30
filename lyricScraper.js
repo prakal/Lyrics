@@ -1,4 +1,5 @@
 var rapgeniusClient = require("rapgenius-js");
+var sentiment = require("./sentiment.js")
 
 var lyricsSearchCb = function(err, lyricsAndExplanations){
     if(err){
@@ -10,6 +11,7 @@ var lyricsSearchCb = function(err, lyricsAndExplanations){
       console.log("Found lyrics for song [title=%s, main-artist=%s, featuring-artists=%s, producing-artists=%s]",
         lyrics.songTitle, lyrics.mainArtist, lyrics.featuringArtists, lyrics.producingArtists);
       var lyr = lyrics.getFullLyrics(true);
+      console.log('sentiment',sentiment(lyr));
       console.log('num of words',lyr.split(' ').length);
       console.log("**** LYRICS *****\n%s", lyr);
       // regex out words in square brackets:
@@ -29,8 +31,11 @@ var searchCallback = function(err, songs){
     if(songs.length > 0){
       //We have some songs
       rapgeniusClient.searchLyricsAndExplanations(songs[0].link, "rap", lyricsSearchCb);
+
     }
   }
 };
 
-rapgeniusClient.searchSong("Fake Plastic Trees", "rap", searchCallback);
+
+
+rapgeniusClient.searchSong("happy", "rap", searchCallback);

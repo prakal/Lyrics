@@ -36,27 +36,29 @@ var sentiment = function(string) {
 	for(var i = 0; i < words.length; i++)
 	{
 		var score = dictionary[words[i]];
-		if(score) {
-			sdSum +=  score[1];
-			if(score[0] > highestVal)
-				highestVal = score[0];
-			if(score[0] < lowestVal)
-				lowestVal = score[0];
+		if (score){
+			if(score[0] < 4 || score[0] > 6) {
+				sdSum +=  score[1];
+				if(score[0] > highestVal)
+					highestVal = score[0];
+				if(score[0] < lowestVal)
+					lowestVal = score[0];
 
-			if(score[1] > highestSd)
-			{
-				highestSd = score[1];
-			}
+				if(score[1] > highestSd)
+				{
+					highestSd = score[1];
+				}
 
-			sdSumA += score[2];
-			if(score[2] > highestValA)
-				highestValA = score[2];
-			if(score[2] < lowestValA)
-				lowestValA = score[2];
+				sdSumA += score[2];
+				if(score[2] > highestValA)
+					highestValA = score[2];
+				if(score[2] < lowestValA)
+					lowestValA = score[2];
 
-			if(score[3] > highestSd)
-			{
-				highestSdA = score[3];
+				if(score[3] > highestSd)
+				{
+					highestSdA = score[3];
+				}
 			}
 		}
 	}
@@ -67,3 +69,4 @@ var sentiment = function(string) {
 	return [lowestVal + dist * highestSd/sdSum, lowestValA + distA * highestSdA/sdSumA];
 }
 
+module.exports = sentiment;
